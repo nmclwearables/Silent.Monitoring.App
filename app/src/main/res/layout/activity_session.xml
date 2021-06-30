@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SessionActivity">
+
+    <TextView
+        android:id="@+id/textLeftWatch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:text="Left Watch"
+        android:textColor="@color/ColorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/leftStatusIcon2"
+        app:layout_constraintStart_toStartOf="@+id/imageLeftWatch2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/leftStatusIcon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_baseline_wifi_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textLeftWatch2"
+        app:layout_constraintEnd_toEndOf="@+id/imageLeftWatch2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textLeftWatch2"
+        app:layout_constraintTop_toTopOf="@+id/textLeftWatch2">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/imageLeftWatch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_baseline_watch_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageRightWatch2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLeftWatch2" />
+
+    <ImageView
+        android:id="@+id/imageLeftBattery2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/ic_baseline_battery_charging_full_24"
+        app:layout_constraintBottom_toBottomOf="@+id/imageLeftWatch2"
+        app:layout_constraintEnd_toEndOf="@+id/imageLeftWatch2"
+        app:layout_constraintStart_toStartOf="@+id/imageLeftWatch2"
+        app:layout_constraintTop_toTopOf="@+id/imageLeftWatch2">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/leftBatteryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="50%"
+        android:textColor="@color/ColorBlack"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageLeftBattery2"
+        app:layout_constraintStart_toEndOf="@+id/imageLeftBattery2"
+        app:layout_constraintTop_toTopOf="@+id/imageLeftBattery2" />
+
+    <TextView
+        android:id="@+id/textRightWatch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="Right Watch"
+        android:textColor="@color/ColorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/rightStatusIcon2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/imageRightWatch2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/rightStatusIcon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_baseline_wifi_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textRightWatch2"
+        app:layout_constraintEnd_toEndOf="@+id/imageRightWatch2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textRightWatch2"
+        app:layout_constraintTop_toTopOf="@+id/textRightWatch2">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/imageRightWatch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_baseline_watch_24"
+        app:layout_constraintBottom_toBottomOf="@+id/imageLeftWatch2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageLeftWatch2"
+        app:layout_constraintTop_toBottomOf="@+id/textRightWatch2" />
+
+    <ImageView
+        android:id="@+id/imageRightBattery2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/ic_baseline_battery_charging_full_24"
+        app:layout_constraintBottom_toBottomOf="@+id/imageRightWatch2"
+        app:layout_constraintEnd_toEndOf="@+id/imageRightWatch2"
+        app:layout_constraintStart_toStartOf="@+id/imageRightWatch2"
+        app:layout_constraintTop_toTopOf="@+id/imageRightWatch2">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/rightBatteryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="100%"
+        android:textColor="@color/ColorBlack"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageRightBattery2"
+        app:layout_constraintStart_toEndOf="@+id/imageRightBattery2"
+        app:layout_constraintTop_toTopOf="@+id/imageRightBattery2" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/dividerVertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLeftWatch2" />
+
+    <TextView
+        android:id="@+id/textSessionTimes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Exercise Session Start Times"
+        android:textColor="@color/ColorAccent2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/s1current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="@color/ColorBlack"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSessionTimes" />
+
+    <TextView
+        android:id="@+id/s2current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="@color/ColorBlack"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/s3current"
+        app:layout_constraintStart_toEndOf="@+id/s1current"
+        app:layout_constraintTop_toBottomOf="@+id/textSessionTimes" />
+
+    <TextView
+        android:id="@+id/s3current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        android:textColor="@color/ColorBlack"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSessionTimes" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/dividerVertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/s2current" />
+
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Collecting Data..."
+        android:textColor="@color/ColorAccent2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_main"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStatus"
+        app:lottie_autoPlay="false"
+        app:lottie_fileName="4510-uploading.json"
+        app:lottie_loop="true"
+        app:lottie_speed="0.6" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:indicatorColor="@color/ColorAccent2"
+        app:indicatorSize="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStatus"
+        app:trackThickness="8dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/progressCircle"
+        app:layout_constraintEnd_toEndOf="@+id/progressCircle"
+        app:layout_constraintStart_toStartOf="@+id/progressCircle"
+        app:layout_constraintTop_toTopOf="@id/progressCircle">
+
+        <TextView
+            android:id="@+id/textCueStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cue #"
+            android:textColor="@color/ColorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:textColor="@color/ColorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Today's monitoring will end at"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="TextView"
+        android:textColor="@color/ColorAccent2"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textMessage"
+        app:layout_constraintStart_toEndOf="@+id/textMessage"
+        app:layout_constraintTop_toTopOf="@+id/textMessage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
