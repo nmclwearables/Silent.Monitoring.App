@@ -1,4 +1,4 @@
-package com.jakehorder.activityapp;
+package com.jakehorder.silentapp;
 
 import android.app.Application;
 

@@ -1,52 +1,32 @@
-package com.jakehorder.activityapp;
+package com.jakehorder.silentapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.app.TimePickerDialog;
-import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
-import android.bluetooth.le.BluetoothLeScanner;
-import android.bluetooth.le.ScanCallback;
-import android.bluetooth.le.ScanResult;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-import android.se.omapi.Session;
-import android.text.format.DateFormat;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.airbnb.lottie.utils.Utils;
-import com.google.android.material.timepicker.MaterialTimePicker;
-import com.google.android.material.timepicker.TimeFormat;
 import com.mbientlab.metawear.Data;
-import com.mbientlab.metawear.DeviceInformation;
 import com.mbientlab.metawear.MetaWearBoard;
 import com.mbientlab.metawear.Route;
 import com.mbientlab.metawear.Subscriber;
@@ -57,11 +37,8 @@ import com.mbientlab.metawear.builder.RouteComponent;
 import com.mbientlab.metawear.data.Acceleration;
 import com.mbientlab.metawear.module.AccelerometerBmi160;
 import com.mbientlab.metawear.module.AccelerometerBosch;
-import com.mbientlab.metawear.module.Haptic;
 import com.mbientlab.metawear.module.Led;
 import com.mbientlab.metawear.module.Logging;
-
-import org.w3c.dom.Text;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -69,15 +46,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
-import java.util.UUID;
 
 import bolts.Continuation;
 import bolts.Task;
@@ -90,19 +60,34 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         private BtleService.LocalBinder serviceBinder;
         private static final String TAG = "MetaWear";
 
-        //private final String MW_MAC_ADDRESS_1 = "FE:7E:FE:40:B6:6A";    // phone 1 left device
-        //private final String MW_MAC_ADDRESS_2 = "C5:10:B9:F0:DD:C7";    // phone 1 right device
+        private final String MW_MAC_ADDRESS_1 = "D9:50:FE:38:FB:CB";    // phone 1 left device
+        private final String MW_MAC_ADDRESS_2 = "EA:1F:F9:8D:66:4C";    // phone 1 right device
 
-        //private final String MW_MAC_ADDRESS_1 = "F0:DA:4E:95:78:E7";    // phone 3 left device
-        //private final String MW_MAC_ADDRESS_2 = "F0:70:E4:18:EE:46";    // phone 3 right device
+        //private final String MW_MAC_ADDRESS_1 = "FC:F9:DB:B3:68:E1";    // phone 2 left device
+        //private final String MW_MAC_ADDRESS_2 = "F3:59:D6:D4:B5:52";    // phone 2 right device
+
+        //private final String MW_MAC_ADDRESS_1 = "D9:50:FE:38:FB:CB";    // phone 3 left device
+        //private final String MW_MAC_ADDRESS_2 = "EA:1F:F9:8D:66:4C";    // phone 3 right device
 
         //private final String MW_MAC_ADDRESS_1 = "D9:50:FE:38:FB:CB";    // phone 4 left device
         //private final String MW_MAC_ADDRESS_2 = "F3:59:D6:D4:B5:52";    // phone 4 right device
 
-        private final String MW_MAC_ADDRESS_1 = "DF:A7:2F:BD:75:1D";    // phone 5 left device
-        private final String MW_MAC_ADDRESS_2 = "EA:1F:F9:8D:66:4C";    // phone 5 right device
+        //private final String MW_MAC_ADDRESS_1 = "DF:A7:2F:BD:75:1D";    // phone 5 left device
+        //private final String MW_MAC_ADDRESS_2 = "EA:1F:F9:8D:66:4C";    // phone 5 right device
 
-        public static MetaWearBoard board1;
+        //private final String MW_MAC_ADDRESS_1 = "EA:E0:F9:34:44:5A";    // phone 6 left device
+        //private final String MW_MAC_ADDRESS_2 = "F7:5C:C2:51:B6:C9";    // phone 6 right device
+
+        //private final String MW_MAC_ADDRESS_1 = "FB:A1:99:82:51:83";    // phone 7 left device
+        //private final String MW_MAC_ADDRESS_2 = "C2:E0:8B:E3:EE:D4";    // phone 7 right device
+
+        //private final String MW_MAC_ADDRESS_1 = "E5:7C:3A:DC:EB:B5";    // phone 8 left device
+        //private final String MW_MAC_ADDRESS_2 = "DF:FC:4C:06:65:83";    // phone 8 right device
+
+        //private final String MW_MAC_ADDRESS_1 = "C0:8E:E0:95:43:AA";    // phone 9 left device
+        //private final String MW_MAC_ADDRESS_2 = "D9:13:B7:82:ED:82";    // phone 9 right device
+
+    public static MetaWearBoard board1;
         public static MetaWearBoard board2;
 
         public static Led led_left;
@@ -116,20 +101,11 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
         public static String filename;
         public static String filename2;
-        public static String filename_cues;
         public static File path;
         public static File path2;
-        public static File path_cues;
 
         public static float acc1data;
         public static float acc2data;
-
-        public int s1hour;
-        public int s1min;
-        public int s2hour;
-        public int s2min;
-        public int s3hour;
-        public int s3min;
 
         public Handler mHandler;
 
@@ -175,14 +151,6 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
             // Begin 'connecting...' animation
                 makeMeBlink(leftConnecting);
                 makeMeBlink(rightConnecting);
-
-            // intialize default times
-                s1hour = 9;
-                s1min = 30;
-                s2hour = 12;
-                s2min = 30;
-                s3hour = 16;
-                s3min = 0;
 
             // handler for updating watch statuses
             mHandler = new Handler(Looper.myLooper()) {
@@ -317,102 +285,11 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
                         });
                 alertDialog.show();
             }
-            if ((s1hour < current_hour))
-                    //|| (s1hour == current_hour && s1min < current_minute + 30) ||
-                    //(s1hour == current_hour + 1 && s1min < current_minute - 30))
-            {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Error - Session 1");
-                alertDialog.setMessage("Please select a starting time for Session #1 at least 30 minutes after the current time.");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
-            else if ((s2hour == s1hour) ||
-                    (s2hour == s1hour + 1 && s2min < s1min))
-            {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Error - Session 2");
-                alertDialog.setMessage("Please select a starting time at least 1 hour after the start of Session #1.");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
-            else if (s2hour < s1hour)
-            {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Error - Session 2");
-                alertDialog.setMessage("Please select a time after Session #1.");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
-            else if ((s3hour == s2hour) ||
-                    (s3hour == s2hour + 1 && s3min < s2min))
-            {
-                Calendar bad = Calendar.getInstance();
-                bad.set(Calendar.HOUR_OF_DAY, current_hour+7);
-                bad.set(Calendar.MINUTE, current_minute);
-
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Error - Session 3");
-                alertDialog.setMessage("Please select a starting time at least 1 hour after the start of Session #2.");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
-            else if (s3hour < s2hour)
-            {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Error - Session 3");
-                alertDialog.setMessage("Please select a start time after Session #2");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
-            else if ((s3hour > current_hour + 7) ||
-                    (s3hour == current_hour + 7 && s3min > current_minute))
-            {
-                Calendar bad = Calendar.getInstance();
-                bad.set(Calendar.HOUR_OF_DAY, current_hour+7);
-                bad.set(Calendar.MINUTE, current_minute);
-
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Error - Session 3");
-                alertDialog.setMessage("To ensure 8 hours of data collection, please select a time before" + " "+ java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT).format(bad.getTime()));
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
             else
             {
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
                 alertDialog.setTitle("Please Confirm");
-                alertDialog.setMessage("You are about to begin data collection. If the devices are fitted and the session times are correct, please continue!");
+                alertDialog.setMessage("You are about to begin data collection. If the devices are fitted, please continue!");
                 alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Continue",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -513,18 +390,14 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
                 // Initialize filename and open file
                 filename = (now_month + "_" + now_day + "_" + now_hour + "_" + now_minute + "_" + "left");
                 filename2 = (now_month + "_" + now_day + "_" + now_hour + "_" + now_minute + "_" + "right");
-                filename_cues = (now_month + "_" + now_day + "_" + now_hour + "_" + now_minute + "_" + "cues");
 
                 Log.i(TAG, "Created left device's file:"+filename);
                 Log.i(TAG, "Created right device's file:"+filename2);
-                Log.i(TAG, "Created cue file:"+filename_cues);
 
                 path = new File(Environment.getExternalStoragePublicDirectory(
                         Environment.DIRECTORY_DOWNLOADS), filename + ".csv");
                 path2 = new File(Environment.getExternalStoragePublicDirectory(
                         Environment.DIRECTORY_DOWNLOADS), filename2 + ".csv");
-                path_cues = new File(Environment.getExternalStoragePublicDirectory(
-                        Environment.DIRECTORY_DOWNLOADS), filename_cues + ".csv");
 
                 // Write headers to file
                 FileWriter writer = new FileWriter(path);
@@ -535,10 +408,6 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
                 writer2.write("Time,Right_x,Right_y,Right_z");
                 writer2.write("\n");
                 writer2.flush();
-                FileWriter writer3 = new FileWriter(path_cues);
-                writer3.write("Time");
-                writer3.write("\n");
-                writer3.flush();
 
                 acc1.configure()
                         .odr(AccelerometerBmi160.OutputDataRate.ODR_12_5_HZ)  // set odr to 12.5 Hz
@@ -622,12 +491,6 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
             globalClass.setAcc2(acc2);
 
             Intent myIntent = new Intent(MainActivity.this, SessionActivity.class);
-            myIntent.putExtra("s1hour", s1hour);
-            myIntent.putExtra("s1min", s1min);
-            myIntent.putExtra("s2hour", s2hour);
-            myIntent.putExtra("s2min", s2min);
-            myIntent.putExtra("s3hour", s3hour);
-            myIntent.putExtra("s3min", s3min);
 
             MainActivity.this.startActivity(myIntent);
         }
@@ -650,21 +513,6 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
                     return null;
                 }
             });
-        }
-
-        public void showTime1Dialog(View v) {
-            DialogFragment newFragment = new Session1TimeFragment();
-            newFragment.show(getSupportFragmentManager(), "timePicker");
-        }
-
-        public void showTime2Dialog(View v) {
-                DialogFragment newFragment = new Session2TimeFragment();
-                newFragment.show(getSupportFragmentManager(), "timePicker");
-        }
-
-        public void showTime3Dialog(View v) {
-            DialogFragment newFragment = new Session3TimeFragment();
-            newFragment.show(getSupportFragmentManager(), "timePicker");
         }
 
         public void attemptConnect1() {

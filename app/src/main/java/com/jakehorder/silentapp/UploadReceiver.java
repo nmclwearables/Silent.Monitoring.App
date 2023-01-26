@@ -1,12 +1,13 @@
-package com.jakehorder.activityapp;
+package com.jakehorder.silentapp;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public class Session1Receiver extends BroadcastReceiver {
+public class UploadReceiver extends BroadcastReceiver {
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        context.sendBroadcast(new Intent("SESSION_1"));
+        context.sendBroadcast(new Intent("UPLOAD_DATA"));
     }
 }

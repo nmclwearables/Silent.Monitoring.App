@@ -1,4 +1,4 @@
-package com.jakehorder.activityapp;
+package com.jakehorder.silentapp;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.jakehorder.activityapp", appContext.getPackageName());
+        assertEquals("com.jakehorder.silentapp", appContext.getPackageName());
     }
 }

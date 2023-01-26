@@ -84,20 +84,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textLeftWatch" />
 
-    <Button
-        android:id="@+id/button_confirm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/ColorAccent2"
-        android:onClick="confirmSettings"
-        android:text="Confirm Settings"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textLeftWatch"
         android:layout_width="wrap_content"
@@ -161,192 +147,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imageLeftWatch" />
 
     <TextView
-        android:id="@+id/textEnterTimes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Set 30-minute exercise sessions"
-        android:textColor="@color/ColorBlack"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3" />
-
-    <TextView
-        android:id="@+id/session1label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Session 1"
-        android:textColor="@color/ColorAccent2"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEnterTimes" />
-
-    <TextView
-        android:id="@+id/session1time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9:30 AM"
-        android:textColor="@color/ColorBlack"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/session1label"
-        app:layout_constraintTop_toBottomOf="@+id/session1label" />
-
-    <Button
-        android:id="@+id/session1start"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="32dp"
-        android:drawableLeft="@drawable/ic_baseline_access_time_24"
-        android:onClick="showTime1Dialog"
-        android:text="Edit"
-        app:layout_constraintBottom_toBottomOf="@+id/session1time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/session1label" />
-
-    <TextView
-        android:id="@+id/session2label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="Session 2"
-        android:textColor="@color/ColorAccent2"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/session1time" />
-
-    <TextView
-        android:id="@+id/session2time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12:30 PM"
-        android:textColor="@color/ColorBlack"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/session2label"
-        app:layout_constraintTop_toBottomOf="@+id/session2label" />
-
-    <Button
-        android:id="@+id/session2start"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableLeft="@drawable/ic_baseline_access_time_24"
-        android:onClick="showTime2Dialog"
-        android:text="Edit"
-        app:layout_constraintBottom_toBottomOf="@+id/session2time"
-        app:layout_constraintEnd_toEndOf="@+id/session1start"
-        app:layout_constraintStart_toStartOf="@+id/session1start"
-        app:layout_constraintTop_toTopOf="@+id/session2label" />
-
-    <TextView
-        android:id="@+id/session3label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="Session 3"
-        android:textColor="@color/ColorAccent2"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/session2time" />
-
-    <TextView
-        android:id="@+id/session3time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4:00 PM"
-        android:textColor="@color/ColorBlack"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/session3label"
-        app:layout_constraintTop_toBottomOf="@+id/session3label" />
-
-    <Button
-        android:id="@+id/session3start"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableLeft="@drawable/ic_baseline_access_time_24"
-        android:onClick="showTime3Dialog"
-        android:text="Edit"
-        app:layout_constraintBottom_toBottomOf="@+id/session3time"
-        app:layout_constraintEnd_toEndOf="@+id/session2start"
-        app:layout_constraintStart_toStartOf="@+id/session2start"
-        app:layout_constraintTop_toTopOf="@+id/session3label" />
-
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="?android:attr/dividerVertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/session3time" />
-
-    <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Select exercise"
-        android:textColor="@color/ColorBlack"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider7" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="8dp"
-        android:checkedButton="@id/radio_one"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
-
-        <RadioButton
-            android:id="@+id/radio_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="Tap"
-            android:textSize="12sp" />
-
-        <RadioButton
-            android:id="@+id/radio_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="Assisted"
-            android:textSize="12sp" />
-
-        <RadioButton
-            android:id="@+id/radio_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="Independent"
-            android:textSize="12sp" />
-    </RadioGroup>
-
-    <View
-        android:id="@+id/divider8"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="?android:attr/dividerVertical"
+        android:layout_marginTop="16dp"
+        android:text="Press to begin"
+        android:textColor="@color/ColorAccent2"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
     <TextView
         android:id="@+id/textLeftConnecting"
@@ -370,6 +180,18 @@
         app:layout_constraintEnd_toEndOf="@+id/imageRightWatch"
         app:layout_constraintStart_toStartOf="@+id/imageRightWatch"
         app:layout_constraintTop_toBottomOf="@+id/imageRightWatch" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:onClick="confirmSettings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:srcCompat="@drawable/ic_baseline_play_circle_filled_200" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,13 @@
-package com.jakehorder.activityapp;
+package com.jakehorder.silentapp;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public class Session3Receiver extends BroadcastReceiver {
+public class KillReceiver extends BroadcastReceiver {
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        context.sendBroadcast(new Intent("SESSION_3"));
+        context.sendBroadcast(new Intent("KILL_APP"));
     }
 }

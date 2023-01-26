@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jakehorder.activityapp">
+    package="com.jakehorder.silentapp">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -10,47 +10,34 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
-        android:name=".GlobalClass"
+        android:name="com.jakehorder.silentapp.GlobalClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Activity Monitor"
+        android:label="Silent Monitor"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <receiver
-            android:name=".Session1Receiver"
-            android:enabled="true"
-            android:exported="true" />
-
-        <receiver
-            android:name=".Session2Receiver"
+            android:name="com.jakehorder.silentapp.UploadReceiver"
             android:enabled="true"
             android:exported="true" />
         <receiver
-            android:name=".Session3Receiver"
-            android:enabled="true"
-            android:exported="true" />
-        <receiver
-            android:name=".UploadReceiver"
-            android:enabled="true"
-            android:exported="true" />
-        <receiver
-            android:name=".KillReceiver"
+            android:name="com.jakehorder.silentapp.KillReceiver"
             android:enabled="true"
             android:exported="true" />
 
         <service android:name="com.mbientlab.metawear.android.BtleService" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.jakehorder.silentapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SessionActivity" />
+        <activity android:name="com.jakehorder.silentapp.SessionActivity" />
     </application>
 
 </manifest>
