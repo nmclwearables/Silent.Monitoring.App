@@ -154,13 +154,13 @@ public class SessionActivity extends AppCompatActivity {
             int current_hour = c.get(Calendar.HOUR_OF_DAY);
             int current_minute = c.get(Calendar.MINUTE);
 
-            Calendar end = Calendar.getInstance(); // ending alarm 8 hours after current time
-            end.set(Calendar.HOUR_OF_DAY, current_hour+8);
+            Calendar end = Calendar.getInstance(); // ending alarm 12 hours after current time
+            end.set(Calendar.HOUR_OF_DAY, current_hour+12);
             end.set(Calendar.MINUTE, current_minute);
             String endText = java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT).format(end.getTime());
 
-            Calendar kill = Calendar.getInstance(); // kill app 12 hours after current time
-            kill.set(Calendar.HOUR_OF_DAY, current_hour+12);
+            Calendar kill = Calendar.getInstance(); // kill app 13 hours after current time
+            kill.set(Calendar.HOUR_OF_DAY, current_hour+13);
             kill.set(Calendar.MINUTE, current_minute);
             String killText = java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT).format(end.getTime());
 

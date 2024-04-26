@@ -60,34 +60,10 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         private BtleService.LocalBinder serviceBinder;
         private static final String TAG = "MetaWear";
 
-        private final String MW_MAC_ADDRESS_1 = "D9:50:FE:38:FB:CB";    // phone 1 left device
-        private final String MW_MAC_ADDRESS_2 = "EA:1F:F9:8D:66:4C";    // phone 1 right device
+        private final String MW_MAC_ADDRESS_1 = "C0:8E:E0:95:43:AA";    // left device
+        private final String MW_MAC_ADDRESS_2 = "F7:5C:C2:51:B6:C9";    // right device
 
-        //private final String MW_MAC_ADDRESS_1 = "FC:F9:DB:B3:68:E1";    // phone 2 left device
-        //private final String MW_MAC_ADDRESS_2 = "F3:59:D6:D4:B5:52";    // phone 2 right device
-
-        //private final String MW_MAC_ADDRESS_1 = "D9:50:FE:38:FB:CB";    // phone 3 left device
-        //private final String MW_MAC_ADDRESS_2 = "EA:1F:F9:8D:66:4C";    // phone 3 right device
-
-        //private final String MW_MAC_ADDRESS_1 = "D9:50:FE:38:FB:CB";    // phone 4 left device
-        //private final String MW_MAC_ADDRESS_2 = "F3:59:D6:D4:B5:52";    // phone 4 right device
-
-        //private final String MW_MAC_ADDRESS_1 = "DF:A7:2F:BD:75:1D";    // phone 5 left device
-        //private final String MW_MAC_ADDRESS_2 = "EA:1F:F9:8D:66:4C";    // phone 5 right device
-
-        //private final String MW_MAC_ADDRESS_1 = "EA:E0:F9:34:44:5A";    // phone 6 left device
-        //private final String MW_MAC_ADDRESS_2 = "F7:5C:C2:51:B6:C9";    // phone 6 right device
-
-        //private final String MW_MAC_ADDRESS_1 = "FB:A1:99:82:51:83";    // phone 7 left device
-        //private final String MW_MAC_ADDRESS_2 = "C2:E0:8B:E3:EE:D4";    // phone 7 right device
-
-        //private final String MW_MAC_ADDRESS_1 = "E5:7C:3A:DC:EB:B5";    // phone 8 left device
-        //private final String MW_MAC_ADDRESS_2 = "DF:FC:4C:06:65:83";    // phone 8 right device
-
-        //private final String MW_MAC_ADDRESS_1 = "C0:8E:E0:95:43:AA";    // phone 9 left device
-        //private final String MW_MAC_ADDRESS_2 = "D9:13:B7:82:ED:82";    // phone 9 right device
-
-    public static MetaWearBoard board1;
+        public static MetaWearBoard board1;
         public static MetaWearBoard board2;
 
         public static Led led_left;
@@ -104,18 +80,9 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         public static File path;
         public static File path2;
 
-        public static float acc1data;
-        public static float acc2data;
-
         public Handler mHandler;
 
         private Animation anim;
-
-        final Calendar c = Calendar.getInstance();
-        public int current_hour = c.get(Calendar.HOUR_OF_DAY);
-        public int current_minute = c.get(Calendar.MINUTE);
-        public int current_month = c.get(Calendar.MONTH);
-        public int current_day = c.get(Calendar.DAY_OF_MONTH);
 
         public boolean isLeftConnected = false;
         public boolean isRightConnected = false;
@@ -384,7 +351,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
                 Calendar now = Calendar.getInstance();
                 int now_hour = now.get(Calendar.HOUR_OF_DAY);
                 int now_minute = now.get(Calendar.MINUTE);
-                int now_month = now.get(Calendar.MONTH);
+                int now_month = now.get(Calendar.MONTH) + 1;
                 int now_day = now.get(Calendar.DAY_OF_MONTH);
 
                 // Initialize filename and open file
@@ -410,12 +377,12 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
                 writer2.flush();
 
                 acc1.configure()
-                        .odr(AccelerometerBmi160.OutputDataRate.ODR_12_5_HZ)  // set odr to 12.5 Hz
+                        .odr(AccelerometerBmi160.OutputDataRate.ODR_50_HZ)  // set odr to 12.5 Hz
                         .range(AccelerometerBosch.AccRange.AR_4G)             // set range to +/-4g
                         .commit();
 
                 acc2.configure()
-                        .odr(AccelerometerBmi160.OutputDataRate.ODR_12_5_HZ)  // set odr to 25Hz
+                        .odr(AccelerometerBmi160.OutputDataRate.ODR_50_HZ)  // set odr to 25Hz
                         .range(AccelerometerBosch.AccRange.AR_4G)             // set range to +/-4g
                         .commit();
 
